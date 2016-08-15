@@ -34,7 +34,7 @@ class Main(object):
     def _parse_args(self):
         parser = argparse.ArgumentParser(description='One-Time Password Generator')
         parser.add_argument('--version', action='version', version='%s %s' % (self._name, self._version))
-        parser.add_argument('key', help='key or service name from %s' % self._key_file)
+        parser.add_argument('key', help='key or service name from ~/.otpkeys')
 
         return parser.parse_args()
 
