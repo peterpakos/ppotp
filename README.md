@@ -24,7 +24,7 @@ OTP: 770400
 ~~~
 
 ## Key file ~/.otpkeys
-You can save your keys to ~/.otpkeys file using `service=key` format, for example:
+You can save your keys to ~/.otpkeys file using ```service=key``` format, for example:
 ~~~
 $ cat ~/.otpkeys
 aws=N5VEJBTUA553BYJTTTUGS3GANKVDECG62RHVIOV2FLYR5THC726ZOIOF4SQZZ5NV
