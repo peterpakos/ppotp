@@ -9,7 +9,7 @@ usage: otp [-h] [--version] key
 One Time Password Generator
 
 positional arguments:
-  key         key or service name from /Users/peter/.otpkeys
+  key         key or service name from ~/.otpkeys
 
 optional arguments:
   -h, --help  show this help message and exit
