@@ -13,7 +13,7 @@ import pyotp
 
 
 class Main(object):
-    _version = '17.5.18'
+    _version = '17.5.18a'
     _name = os.path.basename(sys.argv[0])
 
     def __init__(self):
@@ -26,7 +26,8 @@ class Main(object):
                     if line != '\n':
                         service = line.partition('=')[0].strip()
                         key = line.partition('=')[2].strip().replace(' ', '')
-                        self._keys[service] = key
+                        if service and key:
+                            self._keys[service] = key
 
     def _parse_args(self):
         parser = argparse.ArgumentParser(description='One-Time Password Generator')
