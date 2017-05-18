@@ -24,7 +24,6 @@ OTP: 770400
 
 ## Key file ~/.otpkeys
 You can save your keys to ~/.otpkeys file using ```service=key``` format, for example:
-
 ~~~
 $ cat ~/.otpkeys
 aws=N5VEJBTUA553BYJTTTUGS3GANKVDECG62RHVIOV2FLYR5THC726ZOIOF4SQZZ5NV
@@ -33,13 +32,11 @@ facebook=ZBSLA3KGE4PEXCEGIJ57AKJLOHW2S3ABQNOOWZVV3HOO4Q3455BOG6BRNU5M2QK4
 ~~~
 
 Then you can generate OTP, by running:
-
 ~~~
 $ ./otp service
 ~~~
 
 Example:
-
 ~~~
 $ ./otp google
 google OTP: 760698
@@ -47,3 +44,26 @@ google OTP: 760698
 $ ./otp facebook
 facebook OTP: 009176
 ~~~
+
+## Auto copy OTP to clipboard (Mac OS X)
+Add the following code to `.bashrc` (you may want to update path to the script):
+~~~
+otp_func() {
+  if code=$(~/git/otp/otp $1 2>&1); then
+    printf "%s\n" "$code" | tee /dev/tty | pbcopy
+  else
+    printf "%s\n" "$code" >&2
+    return 1
+  fi
+}
+alias otp='otp_func'
+~~~
+
+Example:
+~~~
+$ vim ~/.bashrc
+$ source ~/.bashrc
+$ otp cloud
+324982
+~~~
+At this point the above OTP should be in the clipboard.
