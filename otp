@@ -13,7 +13,7 @@ import pyotp
 
 
 class Main(object):
-    _version = '16.8.15'
+    _version = '17.5.18'
     _name = os.path.basename(sys.argv[0])
 
     def __init__(self):
@@ -35,19 +35,26 @@ class Main(object):
         return parser.parse_args()
 
     @staticmethod
-    def totp(key):
+    def _totp(key):
         try:
             code = pyotp.TOTP(key).now()
             return code
         except TypeError:
-            return 'KEY ERROR'
+            return False
 
     def run(self):
         if self._args.key in self._keys:
-            print('%s OTP: %s' % (self._args.key, self.totp(self._keys[self._args.key])))
+            key = self._keys[self._args.key]
         else:
-            print('OTP: %s' % self.totp(self._args.key))
+            key = self._args.key
 
+        code = self._totp(key)
+
+        if code:
+            print(code)
+        else:
+            print('KEY ERROR', file=sys.stderr)
+            exit(1)
 
 if __name__ == '__main__':
     try:
