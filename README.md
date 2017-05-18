@@ -19,7 +19,7 @@ optional arguments:
 ## Examples
 ~~~
 $ ./otp BEXUS3AVCUU7HYU4OZQ44WFXMULPNQB2TKQ4YCNUASPXMPEH6YAZ3IACFM5VEGUQ
-OTP: 770400
+770400
 ~~~
 
 ## Key file ~/.otpkeys
@@ -39,10 +39,10 @@ $ ./otp service
 Example:
 ~~~
 $ ./otp google
-google OTP: 760698
+760698
 
 $ ./otp facebook
-facebook OTP: 009176
+009176
 ~~~
 
 ## Auto copy OTP to clipboard (Mac OS X)
