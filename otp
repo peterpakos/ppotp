@@ -14,7 +14,6 @@ import pyotp
 
 
 class Main(object):
-    """This is a main code class."""
     _version = '1.0.0'
     _name = os.path.basename(sys.argv[0])
 
@@ -46,7 +45,6 @@ class Main(object):
             return False
 
     def run(self):
-        """This method runs the main code."""
         if self._args.key in self._keys:
             key = self._keys[self._args.key]
         else:
@@ -62,7 +60,6 @@ class Main(object):
 
 if __name__ == '__main__':
     try:
-        MAIN = Main()
-        MAIN.run()
+        Main().run()
     except KeyboardInterrupt:
         print('\nCancelling...')
