@@ -1,8 +1,9 @@
 #!/usr/bin/env python
-#
-# One-Time Password Generator
-#
-# Author: Peter Pakos <peter.pakos@wandisco.com>
+"""
+One-Time Password Generator
+
+Author: Peter Pakos <peter.pakos@wandisco.com>
+"""
 
 from __future__ import print_function
 
@@ -13,7 +14,7 @@ import pyotp
 
 
 class Main(object):
-    _version = '17.5.18a'
+    _version = '1.0.0'
     _name = os.path.basename(sys.argv[0])
 
     def __init__(self):
@@ -59,7 +60,6 @@ class Main(object):
 
 if __name__ == '__main__':
     try:
-        main = Main()
-        main.run()
+        Main().run()
     except KeyboardInterrupt:
         print('\nCancelling...')
