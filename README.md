@@ -1,29 +1,57 @@
 # otp
-One-Time Password Generator
+Tool to generate One-Time Passwords
+
+PyPI package: myotp
+
+If you spot any problems or have any improvement ideas then feel free to open
+an issue and I will be glad to look into it for you.
+
+## Installation
+A recommended way of installing the tool is pip install.
+
+Once installed, a command line tool `otp` should be available in your system's PATH.
+
+### pip install
+The tool is available in PyPI and can be installed using pip:
+```
+$ pip install --upgrade pip setuptools wheel
+$ pip install myotp
+$ otp --help
+```
+
+### Manual install
+Run the following command to install required Python modules:
+```
+$ git clone https://github.com/peterpakos/otp.git
+$ cd otp
+$ pip install -r requirements.txt
+$ ./otp --help
+```
 
 ## Usage
 ~~~
-$ ./otp -h
-usage: otp [-h] [--version] key
+$ otp --help
+usage: otp [--help] [--version] key
 
-One Time Password Generator
+Tool to generate One-Time Passwords
 
 positional arguments:
-  key         key or service name from ~/.otpkeys
+  key        key or service name from ~/.otpkeys
 
 optional arguments:
-  -h, --help  show this help message and exit
-  --version   show program's version number and exit
+  --help     show this help message and exit
+  --version  show program's version number and exit
 ~~~
 
 ## Examples
 ~~~
-$ ./otp BEXUS3AVCUU7HYU4OZQ44WFXMULPNQB2TKQ4YCNUASPXMPEH6YAZ3IACFM5VEGUQ
+$ otp BEXUS3AVCUU7HYU4OZQ44WFXMULPNQB2TKQ4YCNUASPXMPEH6YAZ3IACFM5VEGUQ
 770400
 ~~~
 
 ## Key file ~/.otpkeys
-You can save your keys to ~/.otpkeys file using ```service=key``` format, for example:
+You can save your keys to ~/.otpkeys file using ```service=key``` format, for
+example:
 ~~~
 $ cat ~/.otpkeys
 aws=N5VEJBTUA553BYJTTTUGS3GANKVDECG62RHVIOV2FLYR5THC726ZOIOF4SQZZ5NV
@@ -33,23 +61,26 @@ facebook=ZBSLA3KGE4PEXCEGIJ57AKJLOHW2S3ABQNOOWZVV3HOO4Q3455BOG6BRNU5M2QK4
 
 Then you can generate OTP, by running:
 ~~~
-$ ./otp service
+$ otp {service}
 ~~~
 
 Example:
 ~~~
-$ ./otp google
+$ otp aws
+443782
+
+$ otp google
 760698
 
-$ ./otp facebook
+$ otp facebook
 009176
 ~~~
 
 ## Auto copy OTP to clipboard (Mac OS X)
-Add the following code to `.bashrc` (you may want to update path to the script):
+Add the following code at the end of your `~/.bashrc` file:
 ~~~
 otp_func() {
-  if code=$(~/git/otp/otp $1 2>&1); then
+  if code=$(otp $1 2>&1); then
     printf "%s\n" "$code" | tee /dev/tty | pbcopy
   else
     printf "%s\n" "$code" >&2

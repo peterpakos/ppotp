@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+for f in *.md; do
+  pandoc -s -f gfm -t rst "$f" > "${f%.md}.rst"
+done
+
+python setup.py release
+
+for f in *.md; do
+  rm -f "${f%.md}.rst"
+done

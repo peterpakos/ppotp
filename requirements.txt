@@ -1,3 +1,1 @@
-pylint
-pytest
-pyotp
+pyotp>=2.2.6
