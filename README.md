@@ -1,7 +1,7 @@
 # otp
 Tool to generate One-Time Passwords
 
-PyPI package: myotp
+PyPI package: [myotp](https://pypi.python.org/pypi/myotp)
 
 If you spot any problems or have any improvement ideas then feel free to open
 an issue and I will be glad to look into it for you.
@@ -77,10 +77,10 @@ $ otp facebook
 ~~~
 
 ## Auto copy OTP to clipboard (Mac OS X)
-Add the following code at the end of your `~/.bashrc` file:
+Add the following code at the end of your `~/.bashrc` file (change path to otp if needed):
 ~~~
 otp_func() {
-  if code=$(otp $1 2>&1); then
+  if code=$(/usr/local/bin/otp $1 2>&1); then
     printf "%s\n" "$code" | tee /dev/tty | pbcopy
   else
     printf "%s\n" "$code" >&2
