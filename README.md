@@ -50,7 +50,7 @@ $ otp BEXUS3AVCUU7HYU4OZQ44WFXMULPNQB2TKQ4YCNUASPXMPEH6YAZ3IACFM5VEGUQ
 ```
 
 ## Key file ~/.otpkeys
-You can save your keys to ~/.otpkeys file using ```service=key``` format, for
+You can save your keys to ~/.otpkeys file using `service=key` format, for
 example:
 ```
 $ cat ~/.otpkeys
