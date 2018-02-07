@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-"""
-Tool to generate One-Time Passwords
+"""Tool to generate One-Time Passwords
 
 Author: Peter Pakos <peter.pakos@wandisco.com>
 

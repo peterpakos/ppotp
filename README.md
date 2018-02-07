@@ -14,8 +14,7 @@ Once installed, a command line tool `otp` should be available in your system's P
 ### pip install
 The tool is available in PyPI and can be installed using pip:
 ```
-$ pip install --upgrade pip setuptools wheel
-$ pip install myotp
+$ pip install --user myotp
 $ otp --help
 ```
 
@@ -24,7 +23,7 @@ Run the following command to install required Python modules:
 ```
 $ git clone https://github.com/peterpakos/otp.git
 $ cd otp
-$ pip install -r requirements.txt
+$ pip install --user -r requirements.txt
 $ ./otp --help
 ```
 
