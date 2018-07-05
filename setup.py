@@ -1,9 +1,15 @@
 # -*- coding: utf-8 -*-
 
-from os.path import join, dirname, abspath
+import re
 from setuptools import setup
 
-with open(join(abspath(dirname(__file__)), 'VERSION')) as version_file:
-    VERSION = version_file.read().strip()
+version_file = "ppotp/__version__.py"
+verstrline = open(version_file, "rt").read()
 
-setup(version=VERSION, data_files=[('ppotp', ['VERSION'])])
+match = re.search(r"^__version__ = ['\"]([^'\"]*)['\"]", verstrline, re.M)
+if match:
+    version_string = match.group(1)
+else:
+    raise RuntimeError('Unable to find version string in %s.' % (version_file,))
+
+setup(version=version_string)

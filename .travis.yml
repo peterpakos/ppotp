@@ -10,13 +10,13 @@ matrix:
   - python: "3.6"
     env: TOXENV=py36
   - python: "2.7"
-    env: TOXENV=pep8py27
+    env: TOXENV=pep8py2
   - python: "3.6"
-    env: TOXENV=pep8py36
+    env: TOXENV=pep8py3
   - python: "2.7"
-    env: TOXENV=packagepy27
+    env: TOXENV=packagepy2
   - python: "3.6"
-    env: TOXENV=packagepy36
+    env: TOXENV=packagepy3
 install:
   - pip install --upgrade pip setuptools wheel tox
 script:

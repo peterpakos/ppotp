@@ -21,18 +21,16 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 """
 
 from __future__ import absolute_import, print_function
-
+from .__version__ import __version__
 import argparse
 import os
 import sys
 import pyotp
 import binascii
 
-from . import VERSION
-
 
 class Main(object):
-    _version = VERSION
+    _version = __version__
     _name = os.path.basename(sys.argv[0])
 
     def __init__(self):
