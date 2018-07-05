@@ -1,7 +1,7 @@
-# otp
+# ppotp
 Tool to generate One-Time Passwords
 
-PyPI package: [myotp](https://pypi.python.org/pypi/myotp)
+PyPI package: [ppotp](https://pypi.python.org/pypi/ppotp)
 
 If you spot any problems or have any improvement ideas then feel free to open
 an issue and I will be glad to look into it for you.
@@ -14,7 +14,7 @@ Once installed, a command line tool `otp` should be available in your system's P
 ### pip install
 The tool is available in PyPI and can be installed using pip:
 ```
-$ pip install --user myotp
+$ pip install --user ppotp
 $ otp --help
 ```
 

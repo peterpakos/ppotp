@@ -1,10 +1,11 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
+#  -*- coding: utf-8 -*-
 """Tool to generate One-Time Passwords
 
 Author: Peter Pakos <peter.pakos@wandisco.com>
 
-Copyright (C) 2017 WANdisco
+Copyright (C) 2018 WANdisco
+
+This file is part of ipa_check_consistency.
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -20,7 +21,7 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 """
 
-from myotp.main import main
+from os.path import join, dirname, abspath
 
-if __name__ == '__main__':
-    main()
+with open(join(abspath(dirname(__file__)), '..', 'VERSION')) as version_file:
+    VERSION = version_file.read().strip()

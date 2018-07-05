@@ -4,7 +4,7 @@
 
 Author: Peter Pakos <peter.pakos@wandisco.com>
 
-Copyright (C) 2017 WANdisco
+Copyright (C) 2018 WANdisco
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
