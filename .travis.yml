@@ -1,3 +1,5 @@
+dist: xenial
+sudo: false
 language: python
 matrix:
   include:
@@ -9,18 +11,18 @@ matrix:
     env: TOXENV=py35
   - python: "3.6"
     env: TOXENV=py36
+  - python: "3.7"
+    env: TOXENV=py37
   - python: "2.7"
     env: TOXENV=pep8py2
-  - python: "3.6"
+  - python: "3.7"
     env: TOXENV=pep8py3
   - python: "2.7"
     env: TOXENV=packagepy2
-  - python: "3.6"
+  - python: "3.7"
     env: TOXENV=packagepy3
-install:
-  - pip install --upgrade pip setuptools wheel tox
-script:
-  - tox
+install: pip install tox
+script: tox
 notifications:
   email:
     on_success: change

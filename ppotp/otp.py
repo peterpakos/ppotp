@@ -19,7 +19,7 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 """
 
-from __future__ import absolute_import, print_function
+from __future__ import print_function
 from .__version__ import __version__
 import argparse
 import os

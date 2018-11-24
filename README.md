@@ -18,15 +18,6 @@ $ pip install --user ppotp
 $ otp --help
 ```
 
-### Manual install
-Run the following command to install required Python modules:
-```
-$ git clone https://github.com/peterpakos/otp.git
-$ cd otp
-$ pip install --user -r requirements.txt
-$ ./otp --help
-```
-
 ## Usage
 ```
 $ otp --help
