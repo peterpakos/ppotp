@@ -21,7 +21,7 @@ $ otp --help
 ## Usage
 ```
 $ otp --help
-usage: otp [--help] [--version] key
+usage: otp [--version] [--help] [--debug] key
 
 Tool to generate One-Time Passwords
 
@@ -29,8 +29,9 @@ positional arguments:
   key        key or service name from ~/.otpkeys
 
 optional arguments:
-  --help     show this help message and exit
   --version  show program's version number and exit
+  --help     show this help message and exit
+  --debug    debugging mode
 ```
 
 ## Examples
@@ -70,10 +71,11 @@ $ otp facebook
 Add the following code at the end of your `~/.bashrc` file (change path to otp if needed):
 ```
 otp_func() {
-  if code=$(/usr/local/bin/otp $1 2>&1); then
-    printf "%s\n" "$code" | tee /dev/tty | pbcopy
+  if code=$(/usr/local/bin/otp "$1" 2>&1); then
+    printf "%s\\n" "$code" | tee /dev/tty | pbcopy
+    return 0
   else
-    printf "%s\n" "$code" >&2
+    printf "%s\\n" "$code" >&2
     return 1
   fi
 }
