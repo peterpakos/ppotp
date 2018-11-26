@@ -67,8 +67,8 @@ def main():
                         log.debug('Loaded %s' % service)
 
     if args.key in keys:
-        key = keys[args.key]
         log.debug('Service matched: %s' % args.key)
+        key = keys[args.key]
     else:
         log.debug('No service matched, using provided key')
         key = args.key
