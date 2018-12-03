@@ -29,14 +29,14 @@ from pplogger import get_logger
 
 __app_name__ = os.path.splitext(__name__)[0].lower()
 
+parser = argparse.ArgumentParser(description='Tool to generate One-Time Passwords', add_help=False)
+parser.add_argument('--version', action='version', version='%s %s' % (__app_name__, __version__))
+parser.add_argument('--help', action='help', help='show this help message and exit')
+parser.add_argument('--debug', action='store_true', dest='debug', help='debugging mode')
+parser.add_argument('key', help='key or service name from ~/.otpkeys')
+args = parser.parse_args()
 
-def parse_args():
-    parser = argparse.ArgumentParser(description='Tool to generate One-Time Passwords', add_help=False)
-    parser.add_argument('--version', action='version', version='%s %s' % (__app_name__, __version__))
-    parser.add_argument('--help', action='help', help='show this help message and exit')
-    parser.add_argument('--debug', action='store_true', dest='debug', help='debugging mode')
-    parser.add_argument('key', help='key or service name from ~/.otpkeys')
-    return parser.parse_args()
+log = get_logger(name=__name__, debug=args.debug)
 
 
 def totp(key):
@@ -48,8 +48,6 @@ def totp(key):
 
 
 def main():
-    args = parse_args()
-    log = get_logger(name=__name__, debug=args.debug)
     log.debug(args)
 
     keys = {}
