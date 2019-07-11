@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-"""Tool to generate One-Time Passwords
+"""Tool to generate One-Time Passwords and copy them to clipboard
 
 Author: Peter Pakos <peter.pakos@wandisco.com>
 
-Copyright (C) 2018 WANdisco
+Copyright (C) 2018-2019 WANdisco
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -26,10 +26,12 @@ import os
 import pyotp
 import binascii
 from pplogger import get_logger
+import pyperclip
 
 __app_name__ = os.path.splitext(__name__)[0].lower()
 
-parser = argparse.ArgumentParser(description='Tool to generate One-Time Passwords', add_help=False)
+parser = argparse.ArgumentParser(description='Tool to generate One-Time Passwords and copy them to clipboard',
+                                 add_help=False)
 parser.add_argument('--version', action='version', version='%s %s' % (__app_name__, __version__))
 parser.add_argument('--help', action='help', help='show this help message and exit')
 parser.add_argument('--debug', action='store_true', dest='debug', help='debugging mode')
@@ -75,6 +77,7 @@ def main():
 
     if code:
         log.info(code)
+        pyperclip.copy(code)
     else:
         log.error('KEY ERROR')
         exit(1)

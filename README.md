@@ -1,5 +1,5 @@
 # ppotp
-Tool to generate One-Time Passwords
+Tool to generate One-Time Passwords and copy them to clipboard
 
 PyPI package: [ppotp](https://pypi.python.org/pypi/ppotp)
 
@@ -67,25 +67,11 @@ $ otp facebook
 009176
 ```
 
-## Auto copy OTP to clipboard (Mac OS X)
-Add the following code at the end of your `~/.bashrc` file (change path to otp if needed):
-```
-otp_func() {
-  if code=$(/usr/local/bin/otp "$1" 2>&1); then
-    printf "%s\\n" "$code" | tee /dev/tty | pbcopy
-    return 0
-  else
-    printf "%s\\n" "$code" >&2
-    return 1
-  fi
-}
-alias otp='otp_func'
-```
+## Auto copy OTP to clipboard
+The tool automatically copies successfully generated code to the clipboard.
 
 Example:
 ```
-$ vim ~/.bashrc
-$ source ~/.bashrc
 $ otp cloud
 324982
 ```
