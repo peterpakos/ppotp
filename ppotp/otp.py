@@ -77,7 +77,10 @@ def main():
 
     if code:
         log.info(code)
-        pyperclip.copy(code)
+        try:
+            pyperclip.copy(code)
+        except Exception as e:
+            log.debug(e)
     else:
         log.error('KEY ERROR')
         exit(1)

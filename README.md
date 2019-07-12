@@ -23,7 +23,7 @@ $ otp --help
 $ otp --help
 usage: otp [--version] [--help] [--debug] key
 
-Tool to generate One-Time Passwords
+Tool to generate One-Time Passwords and copy them to clipboard
 
 positional arguments:
   key        key or service name from ~/.otpkeys
@@ -68,11 +68,27 @@ $ otp facebook
 ```
 
 ## Auto copy OTP to clipboard
-The tool automatically copies successfully generated code to the clipboard.
+The tool attempts to automatically copy successfully generated code to the
+clipboard. It uses [pyperclip](https://pypi.org/project/pyperclip/) module
+for cross-platform copying text to the clipboard. 
 
 Example:
 ```
 $ otp cloud
 324982
 ```
-At this point the above OTP should be in the clipboard.
+At this point, provided your system supports it, the above OTP should be in
+the clipboard.
+
+### Copy to clipboard issue
+Pyperclip uses various mechanisms to copy text to the clipboard. If your system
+is missing them, you may see a debug message that says:
+```
+Pyperclip could not find a copy/paste mechanism for your system.
+For more information, please visit https://pyperclip.readthedocs.io/en/latest/introduction.html#not-implemented-error
+```
+
+Currently, this error should only appear on Linux (not Windows or Mac).
+
+Please check [the above guide](https://pyperclip.readthedocs.io/en/latest/introduction.html#not-implemented-error)
+for more information on how to fix this.
