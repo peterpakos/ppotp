@@ -65,12 +65,16 @@ def main():
                     if service and key:
                         keys[service] = key
                         log.debug('Loaded %s' % service)
+    else:
+        log.debug('Key file does not exist: %s' % key_file)
 
     if args.key in keys:
         log.debug('Service matched: %s' % args.key)
         key = keys[args.key]
+    elif args.key not in keys and keys:
+        log.debug('No service matched')
+        key = args.key
     else:
-        log.debug('No service matched, using provided key')
         key = args.key
 
     code = totp(key)
