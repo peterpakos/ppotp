@@ -27,6 +27,7 @@ import pyotp
 import binascii
 from pplogger import get_logger
 import pyperclip
+import sys
 
 __app_name__ = os.path.splitext(__name__)[0].lower()
 
@@ -35,7 +36,8 @@ parser = argparse.ArgumentParser(description='Tool to generate One-Time Password
 parser.add_argument('--version', action='version', version='%s %s' % (__app_name__, __version__))
 parser.add_argument('--help', action='help', help='show this help message and exit')
 parser.add_argument('--debug', action='store_true', dest='debug', help='debugging mode')
-parser.add_argument('key', help='key or service name from ~/.otpkeys')
+parser.add_argument('-l', '--list', action='store_true', dest='list', help='list services from ~/.otpkeys')
+parser.add_argument('key', help='key or service name from ~/.otpkeys', nargs='?')
 args = parser.parse_args()
 
 log = get_logger(name=__name__, debug=args.debug)
@@ -67,6 +69,15 @@ def main():
                         log.debug('Loaded %s' % service)
     else:
         log.debug('Key file does not exist: %s' % key_file)
+
+    if args.list:
+        for key in keys:
+            print(key)
+        sys.exit(0)
+
+    if not args.key:
+        parser.print_help()
+        sys.exit(0)
 
     if args.key in keys:
         log.debug('Service matched: %s' % args.key)
