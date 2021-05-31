@@ -3,9 +3,6 @@ Tool to generate One-Time Passwords and copy them to clipboard
 
 PyPI package: [ppotp](https://pypi.python.org/pypi/ppotp)
 
-If you spot any problems or have any improvement ideas then feel free to open
-an issue and I will be glad to look into it for you.
-
 ## Installation
 A recommended way of installing the tool is pip install.
 
@@ -21,17 +18,18 @@ $ otp --help
 ## Usage
 ```
 $ otp --help
-usage: otp [--version] [--help] [--debug] key
+usage: otp [--version] [--help] [--debug] [-l] [key]
 
 Tool to generate One-Time Passwords and copy them to clipboard
 
 positional arguments:
-  key        key or service name from ~/.otpkeys
+  key         key or service name from ~/.otpkeys
 
 optional arguments:
-  --version  show program's version number and exit
-  --help     show this help message and exit
-  --debug    debugging mode
+  --version   show program's version number and exit
+  --help      show this help message and exit
+  --debug     debugging mode
+  -l, --list  list services from ~/.otpkeys
 ```
 
 ## Examples
@@ -41,7 +39,7 @@ $ otp BEXUS3AVCUU7HYU4OZQ44WFXMULPNQB2TKQ4YCNUASPXMPEH6YAZ3IACFM5VEGUQ
 ```
 
 ## Key file ~/.otpkeys
-You can save your keys to ~/.otpkeys file using `service=key` format, for
+You can save your keys to `~/.otpkeys` file using `service=key` format, for
 example:
 ```
 $ cat ~/.otpkeys
@@ -50,7 +48,15 @@ google=QYDL7HS7LHPVKX7GGYKYIP3UEYOML2IENWYQD5NHYGETBZIRWWODKQWC3PRNQ3FO
 facebook=ZBSLA3KGE4PEXCEGIJ57AKJLOHW2S3ABQNOOWZVV3HOO4Q3455BOG6BRNU5M2QK4
 ```
 
-Then you can generate OTP, by running:
+To list services defined in `~/.otpkeys`:
+```
+$ otp --list
+aws
+google
+facebook
+```
+
+To generate OTP for a service:
 ```
 $ otp {service}
 ```
@@ -90,5 +96,5 @@ For more information, please visit https://pyperclip.readthedocs.io/en/latest/in
 
 Currently, this error should only appear on Linux (not Windows or Mac).
 
-Please check [the above guide](https://pyperclip.readthedocs.io/en/latest/introduction.html#not-implemented-error)
+Please check [this guide](https://pyperclip.readthedocs.io/en/latest/#not-implemented-error)
 for more information on how to fix this.

@@ -1,9 +1,7 @@
 # -*- coding: utf-8 -*-
 """Tool to generate One-Time Passwords and copy them to clipboard
 
-Author: Peter Pakos <peter.pakos@wandisco.com>
-
-Copyright (C) 2018-2019 WANdisco
+Copyright (c) 2018-2021 Peter Pakos. All rights reserved.
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
